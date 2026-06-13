@@ -6,6 +6,7 @@ public class DoorController : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip openSound;
     [SerializeField] private AudioClip closeSound;
+    [SerializeField] private bool stayOpen = false;
 
     private bool isOpen = false;
 
