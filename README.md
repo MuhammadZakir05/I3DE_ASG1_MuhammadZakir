@@ -23,6 +23,7 @@ To win:
 - Keycard is needed for the Area 2 gate.
 - Generator must be repaired before Area 2 can be unlocked.
 - Password door code: 6920 (Warehouse Door password)
+- Beware of some spillage as they can harm you.
 
 ## Platform / Hardware
 - Platform: Windows PC
