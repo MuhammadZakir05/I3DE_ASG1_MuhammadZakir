@@ -1,5 +1,5 @@
 /// <summary>
-/// Manages the player's inventory progress, including fuses, keycard status,
+/// Manage inventory progress
 /// generator repair status, and updates the objective UI.
 /// </summary>
 

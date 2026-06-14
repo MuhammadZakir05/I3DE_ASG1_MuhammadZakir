@@ -1,6 +1,9 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Manages fuse pickup and updates inventory.
+/// </summary>
 public class FusePickup : MonoBehaviour
 {
     public TextMeshProUGUI interactText;
@@ -14,6 +17,9 @@ public class FusePickup : MonoBehaviour
         interactText.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Collect fuse when interacted (E)
+    /// </summary>
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
@@ -30,6 +36,9 @@ public class FusePickup : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Shows pickup text when player is near
+    /// </summary>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -42,6 +51,9 @@ public class FusePickup : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Hides pickup text when player leaves
+    /// </summary>
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

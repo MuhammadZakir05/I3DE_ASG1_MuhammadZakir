@@ -1,6 +1,9 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Manages generator repair if player = 5 fuses
+/// </summary>
 public class GeneratorRepair : MonoBehaviour
 {
     public bool generatorRepaired = false;
@@ -15,6 +18,9 @@ public class GeneratorRepair : MonoBehaviour
         promptText.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// if player has 5 fuses, repair generator
+    /// </summary>
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
@@ -34,6 +40,9 @@ public class GeneratorRepair : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Shows repair text when player is near.
+    /// </summary>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -46,6 +55,9 @@ public class GeneratorRepair : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Hides repair text when player leaves
+    /// </summary>
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

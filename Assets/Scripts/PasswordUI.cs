@@ -1,10 +1,14 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Manages password UI input and lock cursor
+/// </summary>
 public class PasswordUI : MonoBehaviour
 {
     public TMP_InputField passwordInput;
     public PasswordDoor passwordDoor;
+
 
     void OnEnable()
     {
@@ -13,12 +17,18 @@ public class PasswordUI : MonoBehaviour
         passwordInput.ActivateInputField();
     }
 
+    /// <summary>
+    /// Locks cursor
+    /// </summary>
     void OnDisable()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
+    /// <summary>
+    /// Checks password
+    /// </summary>
     public void SubmitPassword()
     {
         passwordDoor.TryPassword(passwordInput.text);
@@ -27,6 +37,9 @@ public class PasswordUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Close pw panel
+    /// </summary>
     public void ClosePanel()
     {
         passwordInput.text = "";

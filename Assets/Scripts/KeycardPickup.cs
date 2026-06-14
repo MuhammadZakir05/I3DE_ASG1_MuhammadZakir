@@ -1,6 +1,9 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// keycard pickup/inventory update
+/// </summary>
 public class KeycardPickup : MonoBehaviour
 {
     public TextMeshProUGUI interactText;
@@ -14,6 +17,9 @@ public class KeycardPickup : MonoBehaviour
         interactText.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Collect keycard (E)
+    /// </summary>
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
@@ -30,6 +36,9 @@ public class KeycardPickup : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Shows pickup text when player is nearby
+    /// </summary>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -42,6 +51,9 @@ public class KeycardPickup : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Hides pickup text when player leaves
+    /// </summary>
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

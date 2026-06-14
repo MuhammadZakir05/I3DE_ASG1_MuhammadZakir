@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// posion damage for the spill
+/// </summary>
 public class PoisonDamage : MonoBehaviour
 {
     public float damageAmount = 1f;
@@ -10,6 +13,9 @@ public class PoisonDamage : MonoBehaviour
 
     private float damageTimer = 0f;
 
+    /// <summary>
+    /// Damage/few ms
+    /// </summary>
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -24,7 +30,8 @@ public class PoisonDamage : MonoBehaviour
                 {
                     health.TakeDamage(damageAmount);
 
-                    if (hurtSound != null)
+                    // Play audio when damage taken
+                    if (audioSource != null && hurtSound != null)
                     {
                         audioSource.PlayOneShot(hurtSound);
                     }
@@ -35,6 +42,9 @@ public class PoisonDamage : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Resets damage timer when not in touch
+    /// </summary>
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

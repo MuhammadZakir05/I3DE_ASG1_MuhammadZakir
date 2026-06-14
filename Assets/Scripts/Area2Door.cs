@@ -1,6 +1,9 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Area 2 gate requirements and interaction
+/// </summary>
 public class Area2Door : MonoBehaviour
 {
     public DoorController doorController;
@@ -14,6 +17,9 @@ public class Area2Door : MonoBehaviour
         interactText.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// check for requirements
+    /// </summary>
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
@@ -38,6 +44,9 @@ public class Area2Door : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Shows interaction text when player is near
+    /// </summary>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -49,6 +58,9 @@ public class Area2Door : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Hides interaction text when player leaves
+    /// </summary>
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

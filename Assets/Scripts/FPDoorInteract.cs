@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// raycasting for door
+/// </summary>
 public class FPDoorInteract : MonoBehaviour
 {
     [SerializeField] private float interactDistance = 2f;
@@ -7,6 +10,9 @@ public class FPDoorInteract : MonoBehaviour
 
     private DoorController currentDoor;
 
+    /// <summary>
+    /// Checks for interaction/distance to close door
+    /// </summary>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -15,6 +21,7 @@ public class FPDoorInteract : MonoBehaviour
             {
                 Area2Door area2Door = hit.collider.GetComponentInParent<Area2Door>();
 
+                // Ignore Area 2 due to own script
                 if (area2Door != null)
                 {
                     return;
@@ -22,6 +29,7 @@ public class FPDoorInteract : MonoBehaviour
 
                 PasswordDoor passwordDoor = hit.collider.GetComponentInParent<PasswordDoor>();
 
+                // Shows password UI
                 if (passwordDoor != null)
                 {
                     passwordDoor.ShowPasswordPanel();
@@ -30,6 +38,7 @@ public class FPDoorInteract : MonoBehaviour
 
                 DoorController door = hit.collider.GetComponentInParent<DoorController>();
 
+                // Open door.
                 if (door != null)
                 {
                     currentDoor = door;
@@ -38,6 +47,7 @@ public class FPDoorInteract : MonoBehaviour
             }
         }
 
+        // Close current door when player walks far enough away.
         if (currentDoor != null)
         {
             float distance = Vector3.Distance(transform.position, currentDoor.transform.position);
