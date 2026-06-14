@@ -13,6 +13,13 @@ public class FPDoorInteract : MonoBehaviour
         {
             if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, interactDistance))
             {
+                Area2Door area2Door = hit.collider.GetComponentInParent<Area2Door>();
+
+                if (area2Door != null)
+                {
+                    return;
+                }
+
                 PasswordDoor passwordDoor = hit.collider.GetComponentInParent<PasswordDoor>();
 
                 if (passwordDoor != null)

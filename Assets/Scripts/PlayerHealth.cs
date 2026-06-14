@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PlayerHealth : MonoBehaviour
 
     public Slider healthSlider;
     public TextMeshProUGUI hpValueText;
+
+    public GameObject gameOverPanel;
+
 
     void Start()
     {
@@ -33,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Player died");
+            Die();
         }
     }
 
@@ -42,4 +46,20 @@ public class PlayerHealth : MonoBehaviour
         healthSlider.value = currentHealth;
         hpValueText.text = Mathf.CeilToInt(currentHealth) + "/" + Mathf.CeilToInt(maxHealth);
     }
+
+    void Die()
+{
+    gameOverPanel.SetActive(true);
+
+    Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
+
+    Time.timeScale = 0f;
+}
+
+public void RestartGame()
+{
+    Time.timeScale = 1f;
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+}
 }

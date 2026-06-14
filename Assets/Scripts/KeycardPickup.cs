@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class FusePickup : MonoBehaviour
+public class KeycardPickup : MonoBehaviour
 {
     public TextMeshProUGUI interactText;
     public AudioClip pickupSound;
@@ -18,7 +18,7 @@ public class FusePickup : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            playerInventory.AddFuse();
+            playerInventory.AddKeycard();
 
             if (pickupSound != null)
             {
@@ -37,7 +37,7 @@ public class FusePickup : MonoBehaviour
             playerInRange = true;
             playerInventory = other.GetComponent<Inventory>();
 
-            interactText.text = "FUSE\nE to collect";
+            interactText.text = "KEYCARD\nE to collect";
             interactText.gameObject.SetActive(true);
         }
     }
